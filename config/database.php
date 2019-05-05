@@ -13,13 +13,13 @@ return [
     // 数据库类型
     'type'            => 'mysql',
     // 服务器地址
-    'hostname'        => '127.0.0.1',
+    'hostname'        => 'http://119.29.242.151',
     // 数据库名
     'database'        => 'vmq',
     // 用户名
-    'username'        => 'root',
+    'username'        => 'vmq',
     // 密码
-    'password'        => 'root',
+    'password'        => 'zhouzhou00',
     // 端口
     'hostport'        => '3306',
     // 连接dsn
