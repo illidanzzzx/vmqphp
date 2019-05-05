@@ -1,6 +1,6 @@
 <?php
 ini_set("error_reporting","E_ALL & ~E_NOTICE");
-$key = "aa15188ce0f1d97018524d9862ef2a46";//通讯密钥
+$key = "a097dca933f26862b6c50d1a2d6c4794";//通讯密钥
 $payId = $_GET['payId'];//商户订单号
 $param = $_GET['param'];//创建订单的时候传入的参数
 $type = $_GET['type'];//支付方式 ：微信支付为1 支付宝支付为2
