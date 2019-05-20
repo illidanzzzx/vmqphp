@@ -333,8 +333,17 @@ class Index
             $sign = $res['pay_id'].$res['param'].$res['type'].$res['price'].$res['really_price'].$key;
             $p = $p . "&sign=".md5($sign);
 
+            $url = $res['return_url'];
 
-            return json($this->getReturn(1, "成功", $res['return_url']."?".$p));
+
+
+            if (strpos($url,"?")===false){
+                $url = $url."?".$p;
+            }else{
+                $url = $url."&".$p;
+            }
+
+            return json($this->getReturn(1, "成功", $url));
         }else{
             return json($this->getReturn(-1, "云端订单编号不存在"));
         }
@@ -470,8 +479,14 @@ class Index
             $sign = $res['pay_id'].$res['param'].$res['type'].$res['price'].$res['really_price'].$key;
             $p = $p . "&sign=".md5($sign);
 
+            if (strpos($url,"?")===false){
+                $url = $url."?".$p;
+            }else{
+                $url = $url."&".$p;
+            }
 
-            $re = $this->getCurl($url."?".$p);
+
+            $re = $this->getCurl($url);
             if ($re=="success"){
                 return json($this->getReturn());
             }else{
@@ -536,6 +551,20 @@ class Index
                     ->where("oid",$row['order_id'])
                     ->delete();
             }
+
+            $rows = Db::name("tmp_price")->select();
+            foreach ($rows as $row){
+                $re = Db::name("pay_order")->where("order_id",$row['oid'])->find();
+                if ($re){
+
+                }else{
+                    Db::name("tmp_price")
+                        ->where("oid",$row['oid'])
+                        ->delete();
+                }
+            }
+
+
             return json($this->getReturn(1,"成功清理".$res."条订单"));
         }else{
             return json($this->getReturn(1,"没有等待清理的订单"));
