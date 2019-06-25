@@ -22,6 +22,7 @@ Route::any('createOrder','index/index/createOrder');
 Route::any('getOrder','index/index/getOrder');
 Route::any('checkOrder','index/index/checkOrder');
 Route::any('getState','index/index/getState');
+Route::any('closeOrder','index/index/closeOrder');
 
 Route::any('appHeart','index/index/appHeart');
 Route::any('appPush','index/index/appPush');
