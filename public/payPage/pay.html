@@ -78,7 +78,7 @@
             <div class="tip">
                 <div class="ico-scan"></div>
                 <div class="tip-text">
-                    <p>请使用{{payType1}}扫一扫</p>
+                    <p>请使用{{payType1}}长按识别二维码</p>
 
                     <p v-if="isAuto == 0">扫描二维码完成支付</p>
                     <p v-if="isAuto == 1">扫码后输入金额支付</p>
@@ -111,8 +111,9 @@
     </div>
     <div class="foot">
         <div class="inner">
-            <p>手机用户可保存上方二维码到手机中</p>
-            <p>在{{payType1}}扫一扫中选择“相册”即可</p>
+            <p>1、请使用{{payType1}}长按识别二维码</p>
+            <p>2、手机用户可保存上方二维码到手机中</p>
+            <p>3、在{{payType1}}扫一扫中选择“相册”即可</p>
         </div>
     </div>
 
